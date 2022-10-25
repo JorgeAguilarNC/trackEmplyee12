@@ -324,5 +324,5 @@ const dbAction = action => {
     };
 };
 
-// initialize appn
+// initialize app
 promptMenu();
