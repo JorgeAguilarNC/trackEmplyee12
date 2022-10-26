@@ -15,5 +15,7 @@ Javascript
 ## LINKS
 
 A walkthrough video demonstrating the functionality of the application.
-https://github.com/JorgeAguilarNC/trackEmplyee12
+
 The URL of the GitHub repository.
+https://github.com/JorgeAguilarNC/trackEmplyee12
+
