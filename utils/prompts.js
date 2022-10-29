@@ -9,15 +9,15 @@ const mainMenu = [
         message: 'What would you like to do?',
         choices: [
             {
-                name: 'Show All Departments',
+                name: 'view All Departments',
                 value: 'showDepartments'
             },
             {
-                name: 'Show All Roles',
+                name: 'view All Roles',
                 value: 'showRoles'
             },
             {
-                name: 'Show All Employees',
+                name: 'view All Employees',
                 value: 'showEmployees'
             },
             {
@@ -33,10 +33,6 @@ const mainMenu = [
                 value: 'addEmployee'
             },
             {
-                name: "Change an Employee's Role",
-                value: 'updateRole'
-            },
-            {
                 name: "Quit",
                 value: 'quit'
             }
@@ -49,35 +45,35 @@ const addMenu = [
         type: 'input',
         name: 'deptName',
         when: (answers) => answers.target === 'department',
-        message: 'Adding a department. What is the department called?',
+        message: 'Adding a department. Name of Department?',
         //validate: validateString
     },
     {
         type: 'input',
         name: 'title',
         when: (answers) => answers.target === 'role',
-        message: "What is the role's title?",
+        message: "What is the title for this role?",
         //validate: validateString
     },
     {
         type: 'input',
         name: 'salary',
         when: (answers) => answers.target === 'role',
-        message: "What is the role's salary?",
+        message: "What is the salar for this role?",
         ////validate: validateString
     },
     {
         type: 'input',
         name: 'first_name',
         when: (answers) => answers.target === 'employee',
-        message: "What is the employee's first name?",
+        message: "Enter employee's first name?",
         //validate: validateString
     },
     {
         type: 'input',
         name: 'last_name',
         when: (answers) => answers.target === 'employee',
-        message: "What is the employee's last name?",
+        message: "Employee's last name?",
         //validate: validateString
     }
 ];

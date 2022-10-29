@@ -1,17 +1,17 @@
 const mysql = require('mysql2');
 
-// Conn database
-const conn = mysql.createConnection(
+// create database connection
+const conn = mysql.makeConnection(
     {
         'host': 'localhost',
         'user': 'root',
         'database': 'company'
     },
-    console.log("Database connection established. Using database 'company'.")
+    console.log("Database connection established. 'Company'.")
 );
 
 // add department
-const addDepartment = deptName => {
+const makeDepartment = deptName => {
     const sql = `INSERT INTO departments (name)
                 VALUES (?)`;
 
@@ -27,8 +27,8 @@ const addDepartment = deptName => {
 };
 
 // add a role
-const addRole = roleArr => {
-    const sql = `INSERT INTO roles (title, salary, department_id)
+const newRole = roleArr => {
+    const sql = `ADD TO roles (title, salary, department_id)
                 VALUES (?, ?, ?)`;
 
     conn.query(sql, roleArr, (err, results) => {
@@ -68,24 +68,10 @@ const addEmployee = employeeArr => {
     });
 };
 
-// update an employee role
-const updateRole = roleUpdateArr => {
-    const sql = `UPDATE employees
-                SET role_id = ?
-                WHERE id = ?`;
-
-    conn.query(sql, roleUpdateArr, (err, results) => {
-        if (err) {
-            console.error(err);
-        } else {
-            console.log(`Changed employee's role.`);
-        };
-    });
-};
 module.exports = {
-    addDepartment,
-    addRole,
+    makeDepartment,
+    newRole,
     addEmployee,
-    updateRole
+
     // updateManager
 };

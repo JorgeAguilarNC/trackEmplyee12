@@ -19,3 +19,7 @@ A walkthrough video demonstrating the functionality of the application.
 The URL of the GitHub repository.
 https://github.com/JorgeAguilarNC/trackEmplyee12
 
+app use code
+mysql -u root -p
+npm start or node server
+seeds.sql for video demo

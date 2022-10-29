@@ -9,9 +9,9 @@ const {
 
 // get query functions from queries.js
 const {
-    showDepartments,
-    showRoles,
-    showEmployees } = require('./utils/queries');
+    viewDepartments,
+    viewRoles,
+    viewEmployees } = require('./utils/queries');
 
 const {
     addDepartment,
@@ -41,7 +41,7 @@ const promptMenu = () => {
 // get user input needed to perform selected action
 async function promptData(selection) {
     // Connect to database
-    const db = await mysql.createConnection(
+    const db = await mysql.makeConnection(
         {
             'host': 'localhost',
             'user': 'root',
@@ -184,30 +184,30 @@ async function promptData(selection) {
 
     // get user input
     switch (selection.menuChoice) {
-        case 'showDepartments':
+        case 'viewDepartments':
             var action = {
-                type: 'show',
+                type: 'view',
                 target: 'departments'
             };
             return action;
 
-        case 'showRoles':
+        case 'viewRoles':
             var action = {
-                type: 'show',
+                type: 'view',
                 target: 'roles'
             };
             return action;
 
-        case 'showEmployees':
+        case 'viewEmployees':
             var action = {
-                type: 'show',
+                type: 'view',
                 target: 'employees'
             };
             return action;
 
-        case 'addDepartment':
+        case 'makeDepartment':
             var action = {
-                type: 'add',
+                type: 'make',
                 target: 'department'
             };
 
@@ -269,16 +269,16 @@ async function promptData(selection) {
 
 // execute database
 const dbAction = action => {
-    if (action.type === 'show') {
+    if (action.type === 'view') {
         switch (action.target) {
             case 'departments':
-                showDepartments();
+                viewDepartments();
                 return true;
             case 'roles':
-                showRoles();
+                viewRoles();
                 return true;
             case 'employees':
-                showEmployees();
+                viewEmployees();
                 return true;
         };
     };

@@ -6,9 +6,6 @@ const validateString = (input) => {
     if (!input) {
         console.log('Please enter a name.');
         return false;
-    } else if (input.includes(';')) {
-        console.log('Please do not include semi-colons.');
-        return false;
     } else if (input.includes('--')) {
         console.log('Please do not include double dashes.');
     } else {
@@ -17,9 +14,9 @@ const validateString = (input) => {
 };
 
 // view departments
-async function showDepartments() {
+async function viewDepartments() {
     // Connect to database
-    const db = await mysql.createConnection(
+    const db = await mysql.makeConnection(
         {
             'host': 'localhost',
             'user': 'root',
@@ -29,9 +26,9 @@ async function showDepartments() {
     );
 
     const sql = `SELECT
-                name AS Department,
-                id AS ID
-                FROM departments
+                name OF Department,
+                id
+                What departments
                 ORDER BY ID ASC`;
 
     const [rows, fields] = await db.execute(sql);
@@ -41,9 +38,9 @@ async function showDepartments() {
 };
 
 // view  roles
-async function showRoles() {
+async function viewRoles() {
     // Connect to database
-    const db = await mysql.createConnection(
+    const db = await mysql.makeConnection(
         {
             'host': 'localhost',
             'user': 'root',
@@ -68,9 +65,9 @@ async function showRoles() {
 };
 
 // view  employees
-async function showEmployees() {
+async function viewEmployees() {
     // Connect to database
-    const db = await mysql.createConnection(
+    const db = await mysql.makeConnection(
         {
             'host': 'localhost',
             'user': 'root',
@@ -103,7 +100,7 @@ async function showEmployees() {
 
 module.exports = {
     validateString,
-    showDepartments,
-    showRoles,
-    showEmployees
+    viewDepartments,
+    viewRoles,
+    viewEmployees
 };
